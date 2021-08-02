@@ -1,0 +1,11 @@
+1. get all genome from Sol_pub_genomes(Solanaceae+Convolvulaceae)，tomato100_14, tomato_pan,
+and change the genome sequence into *.fa, and put the genome sequence into directory 'all_genome_seq'
+
+2. download the msa_pipeline from https://bitbucket.org/bucklerlab/msa_pipeline/src/master/
+   use 'all_genome_seq.sh', then use qsub.sh to submit the code
+   output: unrooted tree :topology.nwk
+3.  load in mega and root the tree based on outgroup branch (left button, 'root the tree on the selected branch')
+     output:all.sol_mashTree_rootedByOutgroupByMEGA.nwk
+
+    beauty the tree by iTOL; http://www.biomarker.com.cn/archives/13396
+    all.sol_mashTree_rerooted.based.outgroup.ByiTOL (1).txt
