@@ -1,0 +1,21 @@
+include: "rule/00_common.smk"
+
+rule all:
+	input:
+		###################  hifiasm  ##################
+		expand("results/02_assembly/02_hifi_asm/{sample}_hifiasm.bp.p_ctg.fa",sample = Psample),
+		#expand("results/02_assembly/03_hic/02_ref/{sample}_hifiasm.bp.p_ctg.fa",sample = Psample),
+		expand("results/03_assembly_assement/01_seqkit_stats/{sample}_hifiasm.bp.p_ctg",sample = Psample),
+		expand("results/03_assembly_assement/01_seqkit_stats/{sample}_hifiasm.bp.p_ctg_n10_n90",sample = Psample),
+		expand("results/03_assembly_assement/02_busco/{sample}_hifiasm.bp.p_ctg/short_summary.specific.solanales_odb10.{sample}_hifiasm.bp.p_ctg.txt", sample = Psample)
+		###################  HiC  ##################
+		#expand("cleandata/03_hic/{sample}_clean_{n}.fq.gz", sample = Hsample, n = HAP),
+		#expand("results/02_assembly/03_hic/01_qc/02_fastqc/{sample}_clean_{n}_fastqc.html", sample = Hsample, n = HAP),
+		#expand("results/02_assembly/03_hic/01_qc/02_fastqc/{sample}_clean_{n}_fastqc.zip", sample = Hsample, n = HAP),
+		#expand("results/02_assembly/03_hic/02_ref/{sample}_{enzyme}.txt", sample=Psample,enzyme=enzyme),
+		#expand("results/02_assembly/03_hic/04_merge/{sample}.merged_nodups.txt",sample=Psample),
+		#expand("results/02_assembly/03_hic/05_3d-dna/{sample}_hifiasm.hic.p_ctg.FINAL.fasta", sample=Psample)
+
+
+include: "rule/02_hifi_asm.smk"
+#include: "rule/03_hic.smk"

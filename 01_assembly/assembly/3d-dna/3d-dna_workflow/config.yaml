@@ -1,0 +1,18 @@
+rawdata:
+        Pacbio:
+                - "sequence"
+        HiC:
+                - "sequence"
+
+parameters:
+        scaffolding:
+                HiC:
+                        part: 16
+
+
+reference_genomes:
+        "clean_reference"
+
+
+purge_level:
+        0

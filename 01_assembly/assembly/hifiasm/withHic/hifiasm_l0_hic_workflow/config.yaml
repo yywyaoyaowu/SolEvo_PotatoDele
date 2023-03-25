@@ -1,0 +1,14 @@
+rawdata:
+        Pacbio:
+                - "sequence"
+        HiC:
+                - "sequence"
+
+parameters:
+        scaffolding:
+                HiC:
+                        part: 16
+
+
+purge_level:
+        0

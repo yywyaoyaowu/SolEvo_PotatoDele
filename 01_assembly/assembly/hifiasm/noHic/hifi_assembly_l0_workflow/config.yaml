@@ -1,0 +1,6 @@
+rawdata:
+        Pacbio:
+                - "sequence"
+
+purge_level:
+        0
