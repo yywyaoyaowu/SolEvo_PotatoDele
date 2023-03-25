@@ -1,5 +1,5 @@
 #! /usr/bin/perl
-
+#stat
 use strict;
 use warnings;
 use List::Util qw(sum min max);
