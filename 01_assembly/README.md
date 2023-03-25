@@ -1,9 +1,9 @@
 # Genome Assembly
 ### hifiasm
-hifiasm assembly
+genome assembly using hifiasm
 ### 3d-dna
-use juicer and 3d-dna scaffolding contigs using Hi-C reads
+use juicer and 3d-dna to scaffold contigs with Hi-C reads
 ### data_stat
-Assembly results stat
+stat assembly
 
 
