@@ -9,4 +9,4 @@
 ### 03_Constrainted
     GERP score calculation
 ### 04_Deleterious
-    Deleterious variants identification and burden calcultion
+    Deleterious variants identification and deleterious burden calcultion
