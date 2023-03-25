@@ -1,4 +1,4 @@
-# juicer and 3d-dna scaffolding contigs using Hi-C reads
+# use juicer and 3d-dna to scaffold contigs with Hi-C reads
 
 ### 3d-dna_workflow
 Snakemake workflow of scaffolding 
