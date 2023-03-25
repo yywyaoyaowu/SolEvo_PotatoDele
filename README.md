@@ -1,11 +1,12 @@
-Phylogenomic discovery of deleterious mutations in  potato
+# Phylogenomic discovery of deleterious mutations in  potato
 
-Contents:
+## Contents:
 
-01_assembly
-
-02_phylogeny
-
-03_Constrainted
-
-04_Deleterious
+### 01_assembly
+    genome assembly and evaluation
+### 02_phylogeny
+    whole genome alignment and phylogenic tree construction
+### 03_Constrainted
+    GERP score calculation
+### 04_Deleterious
+    Deleterious variants identification and burden calcultion
