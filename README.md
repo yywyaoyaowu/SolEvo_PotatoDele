@@ -8,5 +8,3 @@
     whole genome alignment and phylogenic tree construction
 ### 03_Constrainted
     GERP score calculation
-### 04_Deleterious
-    Deleterious variants identification and deleterious burden calcultion
