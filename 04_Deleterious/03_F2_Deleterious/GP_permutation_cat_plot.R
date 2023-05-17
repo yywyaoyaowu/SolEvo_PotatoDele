@@ -4,7 +4,6 @@
 # Created on: 2022/7/27
 all.mean=NULL
 all.cross=NULL
-#/home/wuyaoyao/03-Solanaceae/SolEvo_Paper/10_NewBin_GP/04_CircleShuffled/NewCutOffs
 AllCutOffs=c(2,2.75,3.5)
 for (ConservationCutoff in AllCutOffs){
   for (p in 1:100){
@@ -21,8 +20,8 @@ write.table(all.mean,"F2_500K.SNP.Block.100TimesPermutation_AddGRM_HomoHeter_Dif
 
 cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 cbbPalette3=cbbPalette[c(3,2,4)]
-GP_cutoffs=read.table("/home/wuyaoyao/03-Solanaceae/SolEvo_Paper/10_NewBin_GP/05_DiffCutOff_seq/GP_differntGERP.CutOff_each.cross.validation.final_NewCutOff.txt",header=T)
-GP_2.75=read.table("/home/wuyaoyao/03-Solanaceae/SolEvo_Paper/10_NewBin_GP/05_DiffCutOff_seq/GP_differntGERP.CutOff_each.cross.validation.final_NewCutOff.txt_GERP2.75",header=T)
+GP_cutoffs=read.table("GP_differntGERP.CutOff_each.cross.validation.final_NewCutOff.txt",header=T)
+GP_2.75=read.table("GP_differntGERP.CutOff_each.cross.validation.final_NewCutOff.txt_GERP2.75",header=T)
 GP=rbind(GP_cutoffs,GP_2.75)
 GP_baseModel=GP[,c(1,2,8)]
 GP_baseModel$Model="Baseline"
@@ -81,14 +80,6 @@ for (Trait in alltraits){
   AllResults=AllResults[c(4,2,3,5,1),]
   AllResults$Absolute_increase_r2=(AllResults$GP_BurdenModel_trait_median/AllResults$GP_baselineModel_trait_median-1)
   AllResults$Relative_increase_r2=(AllResults$GP_BurdenModel_trait_median/AllResults$GP_PermutationModel_trait_mean-1)
-
-  all.mean_one=subset(all.mean,Constraint_Cutoff==ConservationCutoff)
-  TopPer5=tapply(all.mean_one$r2_HomoHeterBurdenFix_addGRM_rmOutlier_median20crossvaliation,all.mean_one$trait,function(x) quantile(x,0.95))
-  AllResults$Top.5Percentage=TopPer5[match(AllResults$Trait,names(TopPer5))]
-  MeanPermutation=tapply(all.mean_one$r2_HomoHeterBurdenFix_addGRM_rmOutlier_median20crossvaliation,all.mean_one$trait,mean)
-  AllResults$MeanPermutation=MeanPermutation[match(AllResults$Trait,names(MeanPermutation))]
-  MedianPermutation=tapply(all.mean_one$r2_HomoHeterBurdenFix_addGRM_rmOutlier_median20crossvaliation,all.mean_one$trait,median)
-  AllResults$MedianPermutation=MeanPermutation[match(AllResults$Trait,names(MedianPermutation))]
   AllResults_AllCutoff=rbind(AllResults_AllCutoff,AllResults)
 }
 
