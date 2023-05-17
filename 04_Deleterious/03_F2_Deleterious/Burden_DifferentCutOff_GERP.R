@@ -4,8 +4,8 @@
 # Created on: 2022/4/24
 library(qgg)
 #input
-snp_infor_homo_DeleStat_file="/home/wuyaoyao/03-Solanaceae/SolEvo_Paper/09_GenomicPrediction/02_F2_E454Ref_minorDele/A626E454_homoSNP_Constraint_infor_AllChrs.txt"
-Bin_geno_file="/home/wuyaoyao/03-Solanaceae/SolEvo_Paper/10_NewBin_GP/00_Geno/A.E-F2_genotype_RefNum_CombinBin_2603Bin.txt"
+snp_infor_homo_DeleStat_file="A626E454_homoSNP_Constraint_infor_AllChrs.txt"
+Bin_geno_file="A.E-F2_genotype_RefNum_CombinBin_2603Bin.txt"
 #####
 #output
 F2_BurdenEachAccession_file_prefix="E463_A626_F2_Burden_Eachline_GERP"
@@ -102,54 +102,26 @@ for (n in 1:nrow(Bin_geno)){
 
   ##Burnden matrix
   Bin_chr_Burden_infor=cbind(all.Bin_Dele_Onecutoff,Bin_Burden_matrix)
- # write.table(Bin_chr_Burden_infor,paste0(BurdenMatrix_prefix,Constraint_Cutoff,"_Additive.txt"),quote=F,row.name=F,sep='\t')
-
+ 
   ##Domainace matrix
   Bin_chr_DomainaceBurden_infor=cbind(all.Bin_Dele_Onecutoff,Bin_DomanianceBurden_matrix)
-  #write.table(Bin_chr_DomainaceBurden_infor,paste0(BurdenMatrix_prefix,Constraint_Cutoff,"_Dominance.txt"),quote=F,row.name=F,sep='\t')
-
+ 
   ##Homo matrix
   colnames(Bin_HomoBurden_matrix)=samples
   Bin_chr_HomoBurden_infor=cbind(all.Bin_Dele_Onecutoff,Bin_HomoBurden_matrix)
- # write.table(Bin_chr_HomoBurden_infor,paste0(BurdenMatrix_prefix,Constraint_Cutoff,"_Homo.txt"),quote=F,row.name=F,sep='\t')
 
   ##HeterSNP matrix
   colnames(Bin_HeterSNP_matrix)=samples
   Bin_chr_HeterSNP_infor=cbind(all.Bin_Dele_Onecutoff,Bin_HeterSNP_matrix)
-  #write.table(Bin_chr_HeterSNP_infor,paste0(BurdenMatrix_prefix,Constraint_Cutoff,"_Heter.txt"),quote=F,row.name=F,sep='\t')
-
+  
   TotalAddBurden_PerAccession=apply(Bin_Burden_matrix,2,sum)
   TotalDomBurden_PerAccession=apply(Bin_DomanianceBurden_matrix,2,sum)
   TotalHeterSNP_PerAccession=apply(Bin_HeterSNP_matrix,2,sum)
 
   AllSNPs=sum(all.Bin_Dele_Onecutoff$polymorphismNum)
   BurdenPerAccession=data.frame(Constraint_Cutoff,samples,TotalAddBurden_PerAccession,TotalDomBurden_PerAccession,TotalHeterSNP_PerAccession,AllSNPs)
- # write.table(BurdenPerAccession,paste0(F2_BurdenEachAccession_file_prefix,Constraint_Cutoff,".txt"),quote=F,row.name=F,sep='\t')
 
   all.BurdenPerAccession=rbind(all.BurdenPerAccession,BurdenPerAccession)
-  ##GRM
-#W_Homo=as.matrix(t(Bin_HomoBurden_matrix))
-#G_Homoburden <- tcrossprod(W_Homo)
-#G_Homoburden_scale <- G_Homoburden / mean(diag(G_Homoburden))
-#saveRDS(G_Homoburden_scale, paste0(BurdenMatrix_prefix,Constraint_Cutoff,"_HomoBurdenweightedGRM.txt"))
-
-#Dom
-#W_Dom=as.matrix(t(Bin_DomanianceBurden_matrix))
-#G_Domburden <- tcrossprod(W_Dom)
-#G_Domburden_scale <- G_Domburden / mean(diag(G_Domburden))
-#saveRDS(G_Domburden_scale, paste0(BurdenMatrix_prefix,Constraint_Cutoff,"_HeterBurdenweightedGRM.txt"))
-
-#Add
-#W_Add=as.matrix(t(Bin_Burden_matrix))
-#G_Addburden <- tcrossprod(W_Add)
-#G_Addburden_scale <- G_Addburden / mean(diag(G_Addburden))
-#saveRDS(G_Addburden_scale, paste0(BurdenMatrix_prefix,Constraint_Cutoff,"_AddBurdenweightedGRM.txt"))
-
-#Num Heter SNP
-#W_HeterSNP=as.matrix(t(Bin_HeterSNP_matrix))
-#G_HeterSNP <- tcrossprod(W_HeterSNP)
-#G_HeterSNP_scale <- G_HeterSNP / mean(diag(G_HeterSNP))
-#saveRDS(G_HeterSNP_scale, paste0(BurdenMatrix_prefix,Constraint_Cutoff,"_HeterSNPweightedGRM.txt"))
 
 }
 write.table(all.Bin_Dele_AllCutOff,paste0(F2_bin_burden_file_prefix,"_AllDiffCutOffs.final_NewCutOff.txt"),quote=F,sep='\t',row.name=F)
