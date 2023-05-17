@@ -3,7 +3,7 @@
 # Created by: wuyaoyao
 # Created on: 2022/4/25
 #input
-setwd("/Users/wuyaoyao/work/03-evolutionary-dele/06_Sol_evo/03_Results/Paper/Output/NewDeleCutOff/F2")
+
 cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 cbbPalette12 <- c("#88CCEE", "#CC6677", "#DDCC77", "#117733", "#332288", "#AA4499",
                   "#44AA99", "#999933", "#882255", "#661100", "#6699CC", "#888888")
